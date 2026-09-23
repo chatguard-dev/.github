@@ -41,7 +41,7 @@ using ChatGuard.Core;
 using ChatGuard.Unity;
 
 // Settings come from Assets/Resources/ChatGuardConfig.asset,
-// or from code: ChatGuardSdk.Configure(apiKey, baseUrl);
+// or from code: ChatGuardSdk.Configure(apiKey);
 void OnPlayerMessage(string playerId, string text)
 {
     ChatGuardSdk.Moderate(text, playerId, result =>
@@ -56,9 +56,10 @@ void OnPlayerMessage(string playerId, string text)
 }
 ```
 
-The [5-minute integration](https://github.com/chatguard-dev/chat-guard-unity#5-minute-integration)
-covers where your key should live, coroutines and async/await. Not on Unity? Any server can call
-Chat Guard with one HTTP request per message, and the
+The [quick start](https://github.com/chatguard-dev/chat-guard-unity#quick-start) takes you from
+install to a first checked message, and [Integrations](https://github.com/chatguard-dev/chat-guard-unity#integrations)
+shows where the call goes on your stack. Not on Unity? Any server can call Chat Guard with one HTTP
+request per message, and the
 [API reference](https://github.com/chatguard-dev/chat-guard-unity/blob/main/Documentation~/api-reference.md)
 lists every field.
 
