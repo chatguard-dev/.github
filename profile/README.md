@@ -15,15 +15,17 @@ block) and the scores behind it.
 ## What it does
 
 - **The rules, handled.** Stores, consoles and laws expect games with chat to moderate it, and Chat
-  Guard takes that work off your studio. Every decision is logged with its scores for 90 days, and
-  message text isn't stored by default, only a hash of it.
+  Guard takes that work off your studio. Every decision is logged with its scores for 90 days, or
+  longer while you keep its message text. Message text isn't stored by default, only a hash of it.
 - **Fast and precise.** A fresh check takes about 300 ms; repeats and your own block rules answer in
   a few milliseconds. Each message is judged with the lines before it, its channel and its age rating,
   so banter about the match and an attack on a player get different answers.
 - **Tune without shipping a build.** Thresholds and rules live in the dashboard, not in your game.
   Save a change and the next message uses it.
 - **Works with your setup.** The Unity package fits Netcode for GameObjects, Mirror, FishNet and
-  Photon Fusion. Nakama, Colyseus and any other server send one HTTP request per message.
+  Photon Fusion. Nakama, Colyseus and any other server send one HTTP request per message. No game
+  server (Photon PUN, Photon Chat)? Run the small example relay from the package, or call from the
+  game with a publishable key.
 
 ## Get started in Unity
 
@@ -67,15 +69,23 @@ lists every field.
 
 - [**chat-guard-unity**](https://github.com/chatguard-dev/chat-guard-unity): the Unity package, for
   Unity 2021.3 LTS and newer. No third-party dependencies, MIT license.
-- [**status**](https://github.com/chatguard-dev/status): checks our public endpoints every five
-  minutes and opens an issue for every outage.
+- [**status**](https://github.com/chatguard-dev/status): our uptime record. The public endpoints are
+  checked every few minutes by an external monitor, with GitHub-based probes as a backup; an outage
+  alerts the operator. Incidents open as issues there.
 
 ## Talk to us
 
-- **Questions and bugs:** the `#help` forum on our [Discord](https://chatguard.dev/discord).
+- **Questions:** the `#help` forum on our [Discord](https://chatguard.dev/discord).
 - **Feature ideas:** `#feature-requests` on the same server.
-- **Account, billing or player data:** [support@chatguard.dev](mailto:support@chatguard.dev).
-- **Found a security problem?** Email [support@chatguard.dev](mailto:support@chatguard.dev) rather
-  than posting it in public.
+- **Found a bug?** [Open an issue](https://github.com/chatguard-dev/chat-guard-unity/issues/new/choose)
+  on chat-guard-unity. Leave keys and players' messages out of it.
+- **Account and billing:** [support@chatguard.dev](mailto:support@chatguard.dev).
+- **Plans and custom volume:** [sales@chatguard.dev](mailto:sales@chatguard.dev).
+- **A player asks about their data?** Use **Export a player** or **Erase a player** on your
+  project's Settings page in the [dashboard](https://app.chatguard.dev). Please never email us
+  player ids or message text; if you write about a record, give its verdict or request id.
+- **Found a security problem?** [Report it privately](https://github.com/chatguard-dev/chat-guard-unity/security/advisories/new)
+  on GitHub or email [support@chatguard.dev](mailto:support@chatguard.dev), rather than posting it in
+  public. [SECURITY.md](https://github.com/chatguard-dev/.github/blob/main/SECURITY.md) has the details.
 
 <sub>[Privacy](https://chatguard.dev/privacy) · [Terms](https://chatguard.dev/terms) · [Data processing agreement](https://chatguard.dev/dpa)</sub>
