@@ -34,15 +34,15 @@ body { color: var(--text); font-family: 'Inter', sans-serif; position: relative;
 .mark-framed { display: none; }
 .dark .mark-filled { display: none; }
 .dark .mark-framed { display: block; }
-h1 { position: absolute; left: 48px; top: 104px; font-size: 40px; line-height: .95; }
-h1 span { display: block; }
+h1 { position: absolute; left: 48px; top: 100px; width: 400px; font-size: 34px; line-height: .95; }
+h1 span { display: block; text-wrap: balance; }
 .note { position: absolute; left: 48px; bottom: 46px; font-size: 15px; line-height: 20px; border-left: 1px solid var(--frame); padding-left: 10px; color: var(--text-soft); }
 /* The landing's halftone: one 1px square per 4px tile, around the chat window only. */
-.stage { position: absolute; left: 470px; top: 30px; width: 466px; height: 260px;
+.stage { position: absolute; left: 454px; top: 30px; width: 482px; height: 260px;
   background-image: conic-gradient(from 270deg at 1px 1px, var(--dot) 90deg, transparent 0); background-size: 4px 4px;
   -webkit-mask-image: linear-gradient(to right, transparent, #000 24px, #000 calc(100% - 24px), transparent), linear-gradient(to bottom, transparent, #000 24px, #000 calc(100% - 24px), transparent);
   -webkit-mask-composite: source-in; }
-.window { position: absolute; left: 494px; top: 76px; width: 418px; background: var(--paper); border: 1px solid var(--frame);
+.window { position: absolute; left: 478px; top: 76px; width: 434px; background: var(--paper); border: 1px solid var(--frame);
   box-shadow: 0 0 0 2px var(--paper), 0 0 0 3px var(--frame); }
 .bar { display: flex; justify-content: space-between; align-items: center; height: 26px; padding: 0 14px; background: var(--frame); color: var(--bar-text); font-size: 11px; }
 .bar span:last-child { color: var(--bar-meta); }
@@ -51,7 +51,7 @@ h1 span { display: block; }
 .who { font-weight: 600; margin-right: 6px; }
 .text { color: var(--text-soft); }
 .cut .text { color: var(--muted); text-decoration: line-through; }
-.stamp { display: grid; grid-template-columns: 40px 72px 40px; column-gap: 6px; align-items: baseline; font-size: 10px; color: var(--muted); }
+.stamp { display: grid; grid-template-columns: 40px 84px 40px; column-gap: 8px; align-items: baseline; font-size: 10px; color: var(--muted); }
 .stamp span:last-child { text-align: right; }
 .badge { justify-self: start; border: 1px solid var(--frame); padding: 0 4px; line-height: 14px; color: var(--text); background: var(--paper); }
 .allow { border-color: var(--hairline); color: var(--muted); background: transparent; }
@@ -66,16 +66,16 @@ h1 span { display: block; }
   <svg class="mark-framed" width="22" height="22" viewBox="0 0 22 22"><rect x="0.5" y="0.5" width="21" height="21" fill="none" stroke="#ececec"/><rect x="11" y="11" width="8" height="8" fill="#f386a1"/></svg>
   <span class="display">Chat Guard</span>
 </div>
-<h1 class="display"><span>Chat moderation</span><span>for Unity games.</span><span>The rules, handled.</span></h1>
+<h1 class="display"><span>Chat moderation</span><span>for Unity games.</span><span>What stores, consoles and laws ask of chat.</span></h1>
 <p class="note">Every message checked in about 300&nbsp;ms</p>
 <div class="stage"></div>
 <div class="window">
   <div class="bar mono"><span>Global chat</span><span>Example</span></div>
   <div class="lines">
     <div class="line"><p><span class="who">nova</span><span class="text">gg, that last round was close</span></p><p class="stamp mono"><span class="badge allow">allow</span><span></span><span>212 ms</span></p></div>
-    <div class="line"><p><span class="who">brakk</span><span class="text">ez game, your team is trash</span></p><p class="stamp mono"><span class="badge allow">allow</span><span>insult 0.27</span><span>264 ms</span></p></div>
+    <div class="line"><p><span class="who">brakk</span><span class="text">ez game, too easy lol</span></p><p class="stamp mono"><span class="badge allow">allow</span><span>insult 0.19</span><span>264 ms</span></p></div>
     <div class="line cut"><p><span class="who">slayer_x</span><span class="text">you're a worthless idiot</span></p><p class="stamp mono"><span class="badge hide">hide</span><span>insult 0.98</span><span>287 ms</span></p></div>
-    <div class="line cut"><p><span class="who">slayer_x</span><span class="text">I know where you live</span></p><p class="stamp mono"><span class="badge block">block</span><span>threat 0.99</span><span>298 ms</span></p></div>
+    <div class="line cut"><p><span class="who">slayer_x</span><span class="text">I know where you live</span></p><p class="stamp mono"><span class="badge block">block</span><span>severity 2.82</span><span>298 ms</span></p></div>
   </div>
 </div>
 </body></html>

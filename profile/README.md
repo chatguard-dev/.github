@@ -2,7 +2,7 @@
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="./banner-dark.png">
   <source media="(prefers-color-scheme: light)" srcset="./banner-light.png">
-  <img src="./banner-light.png" width="100%" alt="Chat Guard: chat moderation for Unity games. The rules, handled. An example chat shows each message with its verdict (allow, hide or block), its score and how long the check took, about 300 ms.">
+  <img src="./banner-light.png" width="100%" alt="Chat Guard: chat moderation for Unity games. What stores, consoles and laws ask of chat. An example chat shows each message with its verdict (allow, hide or block), its score and how long the check took, about 300 ms.">
 </picture>
 </a></p>
 
@@ -14,9 +14,10 @@ block) and the scores behind it.
 
 ## What it does
 
-- **The rules, handled.** Stores, consoles and laws expect games with chat to moderate it, and Chat
-  Guard takes that work off your studio. Every decision is logged with its scores for 90 days, or
-  longer while you keep its message text. Message text isn't stored by default, only a hash of it.
+- **What stores, consoles and laws ask of chat.** Chat Guard takes that work off your studio: every
+  message is checked before other players see it, and every decision is logged with its scores for
+  90 days, or longer while you keep its message text. Message text isn't stored by default, only a
+  hash of it.
 - **Fast and precise.** A fresh check takes about 300 ms; repeats and your own block rules answer in
   a few milliseconds. Each message is judged with the lines before it, its channel and its age rating,
   so banter about the match and an attack on a player get different answers.
@@ -24,8 +25,9 @@ block) and the scores behind it.
   Save a change and the next message uses it.
 - **Works with your setup.** The Unity package fits Netcode for GameObjects, Mirror, FishNet and
   Photon Fusion. Nakama, Colyseus and any other server send one HTTP request per message. No game
-  server (Photon PUN, Photon Chat)? Run the small example relay from the package, or call from the
-  game with a publishable key.
+  server (Photon PUN, Photon Chat)? Run the small
+  [example relay](https://github.com/chatguard-dev/chat-guard-unity/tree/main/Examples~/server-relay)
+  from GitHub, or call from the game with a publishable key.
 
 ## Get started in Unity
 
@@ -39,11 +41,11 @@ block) and the scores behind it.
 3. Check each message before you show it:
 
 ```csharp
+using ChatGuard;
 using ChatGuard.Core;
-using ChatGuard.Unity;
 
-// Settings come from Assets/Resources/ChatGuardConfig.asset,
-// or from code: ChatGuardSdk.Configure(apiKey);
+// Set up once with your key: ChatGuardSdk.Configure(apiKey);
+// (or a config asset at Assets/Resources/ChatGuardConfig.asset)
 void OnPlayerMessage(string playerId, string text)
 {
     ChatGuardSdk.Moderate(text, playerId, result =>
@@ -68,7 +70,8 @@ lists every field.
 ## Repositories
 
 - [**chat-guard-unity**](https://github.com/chatguard-dev/chat-guard-unity): the Unity package, for
-  Unity 2021.3 LTS and newer. No third-party dependencies, MIT license.
+  Unity 2021.3.42 LTS and newer. No third-party dependencies; source available, for use with Chat
+  Guard.
 - [**status**](https://github.com/chatguard-dev/status): our uptime record. The public endpoints are
   checked every few minutes by an external monitor, with GitHub-based probes as a backup; an outage
   alerts the operator. Incidents open as issues there.
